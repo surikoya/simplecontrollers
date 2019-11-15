@@ -49,6 +49,9 @@ public class SearchRestControllerImpl {
 	@GetMapping("item")
 	public List<Item> getItems( HttpServletRequest request) {
 		initialize();
+		String category = request.getParameter("category");
+		if (category != null)
+			searchSvc.getItems(category);
 		return searchSvc.getItems();
 	}
 
